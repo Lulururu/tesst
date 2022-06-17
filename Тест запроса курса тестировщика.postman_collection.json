@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "083a20a8-dcc8-4461-8226-b9df79d426c0",
+		"name": "Тест запроса курса тестировщика",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "тест",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Проверка того, что ответ на запрос приходит от 1хх до 3хх\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка параметра поля name\", function () {\r",
+							"\r",
+							"    var jsonData = pm.response.json();\r",
+							"    var urlName = jsonData.course.name;\r",
+							"    var goodname = \"Курс <span><br>Тестировщик ПО</span>\";\r",
+							"    pm.expect(urlName).to.equal(goodname);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка параметра поля name_list\", function () {\r",
+							"\r",
+							"    var jsonData = pm.response.json();\r",
+							"    var urlNameList = jsonData.course.name_list;\r",
+							"    var goodnamelist = \"Курс Тестировщик ПО\";\r",
+							"    pm.expect(urlNameList).to.equal(goodnamelist);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка параметра поля id\", function () {\r",
+							"\r",
+							"    var jsonData = pm.response.json();\r",
+							"    var urlid = jsonData.course.id;\r",
+							"    var goodid = 42;\r",
+							"    pm.expect(urlid).to.equal(goodid);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка параметра поля class_course\", function () {\r",
+							"\r",
+							"    var jsonData = pm.response.json();\r",
+							"    var urlClassCourse = jsonData.class_course;\r",
+							"    var goodclasscourse = \"prog_\";\r",
+							"    pm.expect(urlClassCourse).to.equal(goodclasscourse);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка параметра поля class_courseID\", function () {\r",
+							"\r",
+							"    var jsonData = pm.response.json();\r",
+							"    var urlClassGroupsID = jsonData.course.course_groups[0].id;\r",
+							"    var goodclassgroupsid = 1;\r",
+							"    pm.expect(urlClassGroupsID).to.equal(goodclassgroupsid);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authority",
+						"value": "brunoyam.com"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "cookie",
+						"value": "_ym_uid=156839024325235385; _ga=GA1.2.1217422797.1568390243; carrotquest_device_guid=edfa8301-00b6-4dc7-9882-1f91d8b2d6e4; _fbp=fb.1.1621165681902.1100038755; sbjs_current=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29; sbjs_first=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29; sbjs_migrations=1418474375998%3D1; _ym_d=1640429464; sbjs_first_add=fd%3D2022-02-20%2013%3A17%3A56%7C%7C%7Cep%3Dhttps%3A%2F%2Fbrunoyam.com%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; analytic_id=1645352278170978; advcake_session_id=0b21472e-0bd2-1d67-7bca-bc8d343c347d; advcake_track_id=83c8d598-7427-b7fc-fed0-fffbd9b70f59; sbjs_current_add=fd%3D2022-05-08%2010%3A23%3A44%7C%7C%7Cep%3Dhttps%3A%2F%2Fbrunoyam.com%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; _gid=GA1.2.1679494386.1653809160; carrotquest_uid=1188675482908887428; carrotquest_auth_token=user.1188675482908887428.32023-d7bee31880058a18ef0efe6784.88dc14df7504861e7cb508efe4b51b1995f10b7d15650089; carrotquest_realtime_services_transport=wss; _ym_isad=2; carrotquest_hide_all_unread_popups=true; carrotquest_hide_all_unread_popups=true; ztracker=694%3Ad3432eec22748b550b070fc18cca5b4b%3A78124095211%3A1%3A%2525%257C8%2520(XXX)%2520XXX-XX-XX; carrotquest_session=74g1norw1185j2tbvvgoplu062rjy3fu; carrotquest_session_started=1; XSRF-TOKEN=eyJpdiI6IkN3NkRQQlwvQ2ZKZWNYMXQrcFVZT1J3PT0iLCJ2YWx1ZSI6IjRRamY2aDVmektVTXFRNDliNkdEMjR4d2lNQ3VMRFVWSDBvOG11VFJsaG5BXC9Gc1kzZzVBNWRXN2VpZEdMRU1RZUV2XC9udkpPNkFXSDNrUWZscWtDbUE9PSIsIm1hYyI6IjMxYWVkN2QxOGNlNTc3ZDY4MDM0MDM4NzcxYmY1MmRlYTQwN2VhYmE2NDA3NzQxNjlhY2Q5ZmM0OGVjNmUwNGMifQ%3D%3D; laravel_session=eyJpdiI6ImZzTmdTVVA2V1d5cXZzM3FpeFJvdGc9PSIsInZhbHVlIjoiRm9HdUNScWxTUzJMSDBjdG4yM1BFcGdmTlFtdnhDM3YxTWtmOTNOZTNVTFRra0tnbkN2YlM2RWhxNWJuQnBGSlJpcEQ0dXJyVk4zXC85OHVJUUNIZTRBPT0iLCJtYWMiOiIzOGY2MjU5OGVkZmMwZThlMzgyMzYxYjY0ODI5MWJkZTY5OWFmMzA1MTZmN2E5NDk4NzZkMmY1OTE0MmEwNTZjIn0%3D; _gat_gtag_UA_89592529_1=1; sbjs_udata=vst%3D35%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Windows%20NT%2010.0%3B%20Win64%3B%20x64%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F102.0.0.0%20Safari%2F537.36; sbjs_session=pgs%3D13%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fbrunoyam.com%2Fkursy-programmirovaniya%2Fqa-testirovsshik-s-nulya"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "referer",
+						"value": "https://brunoyam.com/kursy-programmirovaniya/qa-testirovsshik-s-nulya"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"102\", \"Google Chrome\";v=\"102\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "x-csrf-token",
+						"value": "kFXE44V4YXiqRwY4ZNP1ewf6s2UAtRh2qTu9pFw9"
+					},
+					{
+						"key": "x-requested-with",
+						"value": "XMLHttpRequest"
+					},
+					{
+						"key": "x-xsrf-token",
+						"value": "eyJpdiI6IkN3NkRQQlwvQ2ZKZWNYMXQrcFVZT1J3PT0iLCJ2YWx1ZSI6IjRRamY2aDVmektVTXFRNDliNkdEMjR4d2lNQ3VMRFVWSDBvOG11VFJsaG5BXC9Gc1kzZzVBNWRXN2VpZEdMRU1RZUV2XC9udkpPNkFXSDNrUWZscWtDbUE9PSIsIm1hYyI6IjMxYWVkN2QxOGNlNTc3ZDY4MDM0MDM4NzcxYmY1MmRlYTQwN2VhYmE2NDA3NzQxNjlhY2Q5ZmM0OGVjNmUwNGMifQ=="
+					}
+				],
+				"url": {
+					"raw": "https://brunoyam.com/api/current_course?course_id=42",
+					"protocol": "https",
+					"host": [
+						"brunoyam",
+						"com"
+					],
+					"path": [
+						"api",
+						"current_course"
+					],
+					"query": [
+						{
+							"key": "course_id",
+							"value": "42"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
